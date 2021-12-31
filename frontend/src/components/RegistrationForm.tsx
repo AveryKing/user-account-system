@@ -2,7 +2,6 @@ import React, {FormEvent, FC, useState, ChangeEvent, useEffect} from 'react';
 import {TextField, Button, Typography, Grid, Paper, Grow, Fade, Link, CircularProgress} from "@mui/material";
 import userService from '../services/user';
 import ReactDOM from 'react-dom';
-import Welcome from './Welcome'
 import App from "../App";
 
 const RegistrationForm: FC = () => {
