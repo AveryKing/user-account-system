@@ -1,0 +1,22 @@
+{
+  "name": "login_system",
+  "version": "1.0.0",
+  "description": "User accounts system made with TypeScript, Node.js/Express, &amp; MongoDB. Includes user registrations and login.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AveryKing/user-account-system.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AveryKing/user-account-system/issues"
+  },
+  "homepage": "https://github.com/AveryKing/user-account-system#readme",
+  "devDependencies": {
+    "@types/react": "^17.0.37"
+  }
+}
