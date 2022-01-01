@@ -2,6 +2,7 @@
 import {Grid, Grow, Typography, AppBar, Container, Divider, Chip, Link, ListItem, List, Card, Drawer} from "@mui/material";
 import Paper from "@mui/material/Paper";
 import React from "react";
+import FeaturesItem from "./FeaturesItem";
 import PrimarySearchAppBar from "./NavBar";
 
 export default function MainScreen(props: any) {
@@ -47,83 +48,15 @@ export default function MainScreen(props: any) {
                                 </Divider>
                                 <Typography>To explore the features, click the menu at top left</Typography>
                                 <Grid container>
-                                    <Grid item xs={12} sm={6} lg={3} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
-                                        <Paper elevation={4}
-                                               sx={{ borderRadius: '15px',
-                                                   backgroundColor: "rgba(255,255,255,0.62)"}}>
-                                            <Typography variant='h6'>Registration & Login</Typography>
-                                            <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={12} sm={6} lg={3} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
-                                        <Paper elevation={4}
-                                               sx={{ borderRadius: '15px',
-                                                   backgroundColor: "rgba(255,255,255,0.62)"}}>
-                                            <Typography variant='h6'>Profiles</Typography>
-                                            <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={12} sm={6} lg={3} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
-                                        <Paper elevation={4}
-                                               sx={{ borderRadius: '15px',
-                                                   backgroundColor: "rgba(255,255,255,0.62)"}}>
-                                            <Typography variant='h6'>Messaging</Typography>
-                                            <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={12} sm={6} lg={3} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
-                                        <Paper elevation={4}
-                                               sx={{ borderRadius: '15px',
-                                                   backgroundColor: "rgba(255,255,255,0.62)"}}>
-                                            <Typography variant='h6'>Friends</Typography>
-                                            <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={12} sm={6} lg={3} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
-                                        <Paper elevation={4}
-                                               sx={{ borderRadius: '15px',
-                                                   backgroundColor: "rgba(255,255,255,0.62)"}}>
-                                            <Typography variant='h6'>Posts</Typography>
-
-                                            <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={12} sm={6} lg={3} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
-                                        <Paper elevation={4}
-                                               sx={{ borderRadius: '15px',
-                                                   backgroundColor: "rgba(255,255,255,0.62)"}}>
-                                            <Typography variant='h6'>Search</Typography>
-
-                                            <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={12} sm={6} lg={3} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
-                                        <Paper elevation={4}
-                                               sx={{ borderRadius: '15px',
-                                                   backgroundColor: "rgba(255,255,255,0.62)"}}>
-                                            <Typography variant='h6'>Notifications</Typography>
-
-                                            <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={12} sm={6} lg={3} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
-                                        <Paper elevation={4}
-                                               sx={{ borderRadius: '15px',
-                                                   backgroundColor: "rgba(255,255,255,0.62)"}}>
-                                            <Typography variant='h6'>Groups</Typography>
-
-                                            <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={12} sm={6} lg={3} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
-                                        <Paper elevation={4}
-                                               sx={{ borderRadius: '15px',
-                                                   backgroundColor: "rgba(255,255,255,0.62)"}}>
-                                            <Typography variant='h6'>Administrative</Typography>
-
-                                            <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
-                                        </Paper>
-                                    </Grid>
+                                    <FeaturesItem title='Registration & Login'/>
+                                    <FeaturesItem title='Profiles'/>
+                                    <FeaturesItem title='Messaging'/>
+                                    <FeaturesItem title='Friends'/>
+                                    <FeaturesItem title='Posts'/>
+                                    <FeaturesItem title='Search'/>
+                                    <FeaturesItem title='Notifications'/>
+                                    <FeaturesItem title='Groups'/>
+                                    <FeaturesItem title='Administrative'/>
 
                                 </Grid>
 
