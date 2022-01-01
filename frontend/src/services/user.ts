@@ -17,6 +17,10 @@ const getUserData = () => {
     return request.then(response => response.data);
 }
 
+const validateToken = (token:string) => {
+    const request = axios.post(`${baseUrl}/validateToken`);
+    return request.then(response => response.data.isValid)
+}
 
 const checkInUse = async (userData: any, values: { email?: string, username?: string }): Promise<boolean> => {
     if (values.hasOwnProperty('email')) {
@@ -35,5 +39,5 @@ const checkInUse = async (userData: any, values: { email?: string, username?: st
     return Promise.resolve(false)
 }
 export default {
-    getAll, create, checkInUse, getUserData
+    getAll, create, checkInUse, getUserData,validateToken
 };
