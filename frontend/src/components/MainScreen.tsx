@@ -1,11 +1,12 @@
 
-import {Grid, Grow, Typography, AppBar, Container, Divider, Chip, Link, ListItem, List, Card} from "@mui/material";
+import {Grid, Grow, Typography, AppBar, Container, Divider, Chip, Link, ListItem, List, Card, Drawer} from "@mui/material";
 import Paper from "@mui/material/Paper";
 import React from "react";
 import PrimarySearchAppBar from "./NavBar";
 
 export default function MainScreen(props: any) {
     return (
+
         <Grow in={true} timeout={1000}>
             <div>
             <div style={{marginTop: -7, width: '100vw', marginLeft: -18}}>
@@ -28,6 +29,7 @@ export default function MainScreen(props: any) {
                         paddingTop: '10px',
                         paddingBottom: '10px',
                     }} elevation={15}>
+
                             <Grid item xs={12} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
                                 <Divider >
                                     <Typography variant='h5'>About</Typography>
@@ -43,7 +45,7 @@ export default function MainScreen(props: any) {
                                 <Divider >
                                     <Typography variant='h5'>Features</Typography>
                                 </Divider>
-                                <Typography>To explore the features, click the menu at top left or read below</Typography>
+                                <Typography>To explore the features, click the menu at top left</Typography>
                                 <Grid container>
                                     <Grid item xs={12} sm={6} lg={3} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
                                         <Paper elevation={4}
@@ -57,7 +59,7 @@ export default function MainScreen(props: any) {
                                         <Paper elevation={4}
                                                sx={{ borderRadius: '15px',
                                                    backgroundColor: "rgba(255,255,255,0.62)"}}>
-                                            <Typography variant='h6'>User Profiles</Typography>
+                                            <Typography variant='h6'>Profiles</Typography>
                                             <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
                                         </Paper>
                                     </Grid>
@@ -73,7 +75,15 @@ export default function MainScreen(props: any) {
                                         <Paper elevation={4}
                                                sx={{ borderRadius: '15px',
                                                    backgroundColor: "rgba(255,255,255,0.62)"}}>
-                                            <Typography variant='h6'>User Posts</Typography>
+                                            <Typography variant='h6'>Friends</Typography>
+                                            <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
+                                        </Paper>
+                                    </Grid>
+                                    <Grid item xs={12} sm={6} lg={3} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
+                                        <Paper elevation={4}
+                                               sx={{ borderRadius: '15px',
+                                                   backgroundColor: "rgba(255,255,255,0.62)"}}>
+                                            <Typography variant='h6'>Posts</Typography>
 
                                             <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
                                         </Paper>
@@ -92,6 +102,15 @@ export default function MainScreen(props: any) {
                                                sx={{ borderRadius: '15px',
                                                    backgroundColor: "rgba(255,255,255,0.62)"}}>
                                             <Typography variant='h6'>Notifications</Typography>
+
+                                            <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
+                                        </Paper>
+                                    </Grid>
+                                    <Grid item xs={12} sm={6} lg={3} sx={{padding: '30px', borderRadius: '8px',textAlign:'center'}}>
+                                        <Paper elevation={4}
+                                               sx={{ borderRadius: '15px',
+                                                   backgroundColor: "rgba(255,255,255,0.62)"}}>
+                                            <Typography variant='h6'>Groups</Typography>
 
                                             <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
                                         </Paper>
