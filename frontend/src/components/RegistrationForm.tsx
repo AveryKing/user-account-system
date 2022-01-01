@@ -80,7 +80,8 @@ const RegistrationForm: FC = () => {
                     if(!response.hasOwnProperty('error')) {
                         setDisplayForm(false)
                         setShowPaper(false)
-                        ReactDOM.render(<App welcome={true}/>, document.getElementById('root'));
+                        alert('Welcome')
+                       // ReactDOM.render(<App welcome={true}/>, document.getElementById('root'));
                     } else {
                         alert('error')
                     }
@@ -128,7 +129,7 @@ const RegistrationForm: FC = () => {
             direction="column"
             alignItems="center"
             justifyContent="center"
-            style={{minHeight: '100vh'}}
+            style={{minHeight: '90vh'}}
         >
 
                 <Grow in={showPaper}>
