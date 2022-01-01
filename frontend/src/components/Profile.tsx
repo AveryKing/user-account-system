@@ -1,5 +1,5 @@
 import PrimarySearchAppBar from "./NavBar";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Avatar, Box, Button, Container, Divider, Grid, Link, Slide, Tab, Tabs, Typography} from "@mui/material";
 import Paper from "@mui/material/Paper";
 import FeaturesItem from "./FeaturesItem";

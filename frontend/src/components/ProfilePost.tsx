@@ -5,7 +5,7 @@ import React from "react";
 export default function ProfilePost(props:any) {
     return (
         <Grid item xs={10}>
-            <Paper elevation={2}
+            <Paper elevation={1}
                    sx={{
                        backgroundColor: "rgba(255,255,255,0.62)",
                        borderRadius: '10px'

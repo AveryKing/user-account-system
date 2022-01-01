@@ -62,7 +62,10 @@ userRouter.post('/', async (req: Request, res: Response) => {
     const user: IUser = new User({
         email: email,
         username: username,
-        password: password
+        password: password,
+        biography:null,
+        location: null,
+        age: null
     });
 
     user.save().then(newUser => {
