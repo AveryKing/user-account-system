@@ -6,8 +6,7 @@ import FeaturesItem from "./FeaturesItem";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ProfilePost from "./ProfilePost";
 import FollowersGrid from "./FollowersGrid";
-import {Add, MailOutline} from "@mui/icons-material";
-
+import { Add, MailOutlined } from "@mui/icons-material";
 
 export default function Profile(props: any) {
     interface TabPanelProps {
@@ -96,17 +95,25 @@ export default function Profile(props: any) {
                             <Avatar
 
                                 alt="AK"
-                                src="https://avatars.githubusercontent.com/u/76629826?v=4"
+                                src="/static/images/avatar/1.jpg"
                                 sx={{width: 150, height: 150, marginRight: '5%'}}
                             />
 
                             <div style={{display: 'inline-block', position: 'relative', top: '20px', width: '50vh'}}>
-                                <div style={{width: '20vh', marginLeft: '15%'}}>
+                                <div style={{width: '20vh', marginLeft: '19%'}}>
 
-
-                                    <Typography variant='h5'
-                                                sx={{marginTop: '-20%', width: '20vh', marginBottom: '1%'}}>Avery
-                                        King</Typography><br/>
+                                    <div style={{display: 'inline', marginBottom: '15%', width: '50vh'}}>
+                                        <Typography variant='h5'
+                                                    sx={{
+                                                        marginTop: '-13%',
+                                                        position: 'relative',
+                                                        right: '5%',
+                                                        width: '110%',
+                                                        justifyContent: 'center',
+                                                        marginBottom: '0.7vh'
+                                                    }}>Avery
+                                            King</Typography><br/>
+                                    </div>
                                     <div style={{display: 'block', marginBottom: '15%', width: '50vh'}}><br/>
                                         <Typography sx={{
                                             marginTop: '-13%',
@@ -114,7 +121,7 @@ export default function Profile(props: any) {
                                             right: '5%',
                                             width: '50%',
                                             justifyContent: 'center'
-                                        }}>&emsp;🌍Kalamazoo, MI</Typography>
+                                        }}>🌍Kalamazoo, MI</Typography>
 
                                     </div>
                                     <div style={{display: 'block', marginBottom: '10%', width: '50vh'}}><br/>
@@ -132,10 +139,9 @@ export default function Profile(props: any) {
                                         width: '40%',
                                         borderRadius: '15px',
                                         marginRight: '2px'
-                                    }}><Add/>Follow</Button>
+                                    }}><Add />Follow</Button>
                                     <Button variant='outlined'
-                                            sx={{width: '40', borderRadius: '15px'}}>
-                                        <MailOutline/>&nbsp;Message</Button>
+                                            sx={{width: '40%', borderRadius: '15px'}}><MailOutlined/>&nbsp;Message</Button>
                                 </div>
 
 
@@ -203,7 +209,7 @@ export default function Profile(props: any) {
 
                                 </TabPanel>
                                 <TabPanel value={value} index={2}>
-                                    <FollowersGrid/>
+                                    <FollowersGrid />
                                 </TabPanel>
                                 <TabPanel value={value} index={3}>
                                     <FollowersGrid/>
