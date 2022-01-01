@@ -5,13 +5,25 @@ const userRouter = require('express').Router();
 const jwt = require('jsonwebtoken')
 
 
+userRouter.get('/:userId', async (req:Request, res:Response) => {
+    if(!req.params.userId) {
+        return res.status(400).json({error:'No user ID given'})
+    }
+    const userId: string = req.params.userId
+    User.findOne({_id:userId})
+        .then(user => {
+            res.json({user})
+        }).catch(err => {
+            return res.status(404).json({error:'That user does not exist'});
+    })
+})
+
 userRouter.get('/validate', async (req:Request, res:Response) => {
     res.json({hello:'omg'})
 })
 /** Validates a token ***/
 userRouter.post('/validate', async (req: Request, res: Response) => {
 
-    console.log('validating')
     const SECRET: string = 'H(#(#Ji2mk34jruje9k2i3ij4ufnhv';
     if(!req.body.token) {
         return res.status(401).json({error:'No token was provided'})
