@@ -80,7 +80,7 @@ const RegistrationForm: FC = () => {
                     if(!response.hasOwnProperty('error')) {
                         setDisplayForm(false)
                         setShowPaper(false)
-                        ReactDOM.render(<App mode='greetUser' name='welcome'/>, document.getElementById('root'));
+                        ReactDOM.render(<App mode='greetUser' name='newUser'/>, document.getElementById('root'));
                        // ReactDOM.render(<App welcome={true}/>, document.getElementById('root'));
                     } else {
                         alert('error')
