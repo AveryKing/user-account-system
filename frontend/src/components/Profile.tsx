@@ -5,6 +5,7 @@ import Paper from "@mui/material/Paper";
 import FeaturesItem from "./FeaturesItem";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ProfilePost from "./ProfilePost";
+import FollowersGrid from "./FollowersGrid";
 
 export default function Profile(props: any) {
     interface TabPanelProps {
@@ -158,7 +159,8 @@ export default function Profile(props: any) {
                                 >
                                     <Tab label="Overview" {...a11yProps(0)} />
                                     <Tab label="Posts" {...a11yProps(1)} />
-                                    <Tab label="Friends" {...a11yProps(2)} />
+                                    <Tab label="Followers" {...a11yProps(2)} />
+                                    <Tab label="Following" {...a11yProps(3)} />
 
                                 </Tabs>
                             </Grid>
@@ -198,33 +200,10 @@ export default function Profile(props: any) {
 
                                 </TabPanel>
                                 <TabPanel value={value} index={2}>
-                                    <Grid container sx={{marginLeft:'0%'}} spacing={5}>
-                                        <Grid item xs={12}>
-                                            You have 0 mutual friends
-                                        </Grid>
-                                        <Grid item xs={4}>
-                                            Friend
-                                        </Grid>
-                                     <Grid item xs={4}>
-                                            Friend
-                                        </Grid>
-                                     <Grid item xs={4}>
-                                            Friend
-                                        </Grid>
-                                     <Grid item xs={4}>
-                                            Friend
-                                        </Grid>
-                                     <Grid item xs={4}>
-                                            Friend
-                                        </Grid>
-  <Grid item xs={4}>
-                                            Friend
-                                        </Grid>
-
-                                    </Grid>
+                                    <FollowersGrid />
                                 </TabPanel>
                                 <TabPanel value={value} index={3}>
-                                    Item Four
+                                    <FollowersGrid />
                                 </TabPanel>
                             </Grid>
                             <Grid item xs={2}>
