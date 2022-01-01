@@ -6,6 +6,8 @@ import FeaturesItem from "./FeaturesItem";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ProfilePost from "./ProfilePost";
 import FollowersGrid from "./FollowersGrid";
+import {Add, MailOutline} from "@mui/icons-material";
+
 
 export default function Profile(props: any) {
     interface TabPanelProps {
@@ -94,12 +96,12 @@ export default function Profile(props: any) {
                             <Avatar
 
                                 alt="AK"
-                                src="/static/images/avatar/1.jpg"
+                                src="https://avatars.githubusercontent.com/u/76629826?v=4"
                                 sx={{width: 150, height: 150, marginRight: '5%'}}
                             />
 
                             <div style={{display: 'inline-block', position: 'relative', top: '20px', width: '50vh'}}>
-                                <div style={{width: '20vh', marginLeft: '25%'}}>
+                                <div style={{width: '20vh', marginLeft: '15%'}}>
 
 
                                     <Typography variant='h5'
@@ -127,12 +129,13 @@ export default function Profile(props: any) {
                                 </div>
                                 <div style={{display: 'flex'}}>
                                     <Button variant='outlined' sx={{
-                                        width: '80%',
+                                        width: '40%',
                                         borderRadius: '15px',
                                         marginRight: '2px'
-                                    }}>Follow</Button>
+                                    }}><Add/>Follow</Button>
                                     <Button variant='outlined'
-                                            sx={{width: '80%', borderRadius: '15px'}}>Message</Button>
+                                            sx={{width: '40', borderRadius: '15px'}}>
+                                        <MailOutline/>&nbsp;Message</Button>
                                 </div>
 
 
@@ -191,19 +194,19 @@ export default function Profile(props: any) {
 
                                 <TabPanel value={value} index={1}>
                                     <Grid container sx={{marginLeft: '9%'}} spacing={2}>
-                                        <ProfilePost />
-                                        <ProfilePost />
-                                        <ProfilePost />
-                                        <ProfilePost />
+                                        <ProfilePost/>
+                                        <ProfilePost/>
+                                        <ProfilePost/>
+                                        <ProfilePost/>
 
                                     </Grid>
 
                                 </TabPanel>
                                 <TabPanel value={value} index={2}>
-                                    <FollowersGrid />
+                                    <FollowersGrid/>
                                 </TabPanel>
                                 <TabPanel value={value} index={3}>
-                                    <FollowersGrid />
+                                    <FollowersGrid/>
                                 </TabPanel>
                             </Grid>
                             <Grid item xs={2}>

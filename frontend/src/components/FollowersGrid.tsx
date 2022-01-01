@@ -8,22 +8,22 @@ export default function FollowersGrid(props:any) {
                 You have 6 followers
             </Grid>
             <Grid item xs={4}>
-                Friend
+                User
             </Grid>
             <Grid item xs={4}>
-                Friend
+                User
             </Grid>
             <Grid item xs={4}>
-                Friend
+                User
             </Grid>
             <Grid item xs={4}>
-                Friend
+                User
             </Grid>
             <Grid item xs={4}>
-                Friend
+                User
             </Grid>
             <Grid item xs={4}>
-                Friend
+                User
             </Grid>
 
         </Grid>
