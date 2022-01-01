@@ -8,7 +8,7 @@ import PrimarySearchAppBar from "./NavBar";
 export default function MainScreen(props: any) {
     return (
 
-        <Grow in={true} timeout={1000}>
+    <Grow in={true}>
             <div>
             <div style={{marginTop: -7, width: '100vw', marginLeft: -18}}>
                 <PrimarySearchAppBar/>
@@ -66,7 +66,7 @@ export default function MainScreen(props: any) {
 
 
             </div>
-        </Grow>
+    </Grow>
 
 
     )
