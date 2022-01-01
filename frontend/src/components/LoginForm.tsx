@@ -16,6 +16,7 @@ const LoginForm: FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [user, setUser] = useState(null);
+    const [loginError, setLoginError] = useState(false);
 
 
     useEffect(() => {
@@ -29,10 +30,20 @@ const LoginForm: FC = () => {
     /** TODO: enforce maximum username length
      */
     const onChange = (event: ChangeEvent<HTMLInputElement>): Promise<boolean> | void => {
+
+        if(event.target.name === 'username') {
+            setUsername(event.target.value)
+        }
+        
+        if(event.target.name === 'password'){
+            setPassword(event.target.value);
+        }
     }
 
     const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        setLoading(true)
         event.preventDefault();
+
         try {
             const user = await loginService.login({
                 username, password,
@@ -49,8 +60,17 @@ const LoginForm: FC = () => {
 
             //    ReactDOM.render(<App mode="default" userObj={user} />, document.getElementById('root'))
 
-            return
+            setTimeout(()=> {
+                setLoading(false)
+                setLoginError(false)
+                ReactDOM.render(<App mode="mainScreen" session={user} />, document.getElementById('root'))
+            },1000)
         } catch (exception) {
+            setTimeout(()=> {
+                setLoading(false)
+                setLoginError(true)
+            },1000)
+
           //  return ReactDOM.render(<Snackbar type="error" text={"The credentials you entered are invalid."} />, document.getElementById('snackbar'))
         }
     }
@@ -66,21 +86,21 @@ const LoginForm: FC = () => {
 
     function UsernameText(usernameError: boolean) {
         if (usernameError) {
-            return <TextField error sx={{marginBottom: '10px'}} type='text' name='username'
+            return <TextField error sx={{marginBottom: '10px'}} type='text' id='username' name='username'
                               label='Username'
                               onChange={onChange} helperText={usernameMessage}/>;
         }
-        return <TextField sx={{marginBottom: '10px'}} type='text' name='username' label='Username'
+        return <TextField sx={{marginBottom: '10px'}} type='text' id='username' name='username' label='Username'
                           onChange={onChange}/>;
     }
 
     function PasswordText(passwordError: boolean) {
         if (passwordError) {
-            return <TextField error sx={{marginBottom: '10px'}} type='password' name='password'
+            return <TextField error sx={{marginBottom: '10px'}} type='password' id='password' name='password'
                               label='Password'
                               onChange={onChange} helperText='Your password is too short.'/>;
         }
-        return <TextField sx={{marginBottom: '10px'}} type='password' name='password'
+        return <TextField sx={{marginBottom: '10px'}} type='password' id='password' name='password'
                           label='Password'
                           onChange={onChange}/>;
     }
@@ -109,7 +129,9 @@ const LoginForm: FC = () => {
                         <Grid item xs={12} sx={{padding: '20px', borderRadius: '8px', textAlign:'center'}}>
                             <Typography align='center' variant='h5'
                                         sx={{fontFamily:'Ubuntu', fontWeight:'bold',marginBottom: '15px', paddingTop: '5px', color: "rgba(0,0,0,0.65)"}}>Login</Typography>
+
                             <form onSubmit={onSubmit}>
+                                {loginError && <div><Typography color='error'>Those credentials are invalid.</Typography><br/></div>}
                                 {UsernameText(usernameError)}
                                 <br/>
                                 {PasswordText(passwordError)}
