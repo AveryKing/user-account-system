@@ -1,6 +1,6 @@
 import PrimarySearchAppBar from "./NavBar";
 import React from "react";
-import {Avatar, Box, Container, Divider, Grid, Link, Tab, Tabs, Typography} from "@mui/material";
+import {Avatar, Box, Button, Container, Divider, Grid, Link, Tab, Tabs, Typography} from "@mui/material";
 import Paper from "@mui/material/Paper";
 import FeaturesItem from "./FeaturesItem";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -67,22 +67,6 @@ export default function Profile(props:any) {
         }} elevation={15}>
 
 
-            <Tabs
-                orientation="vertical"
-                variant="scrollable"
-                value={value}
-                onChange={handleChange}
-                aria-label="Vertical tabs example"
-                sx={{ borderRight: 1, borderColor: 'divider',position:'absolute', height:'80vh'}}
-            >
-                <Tab label="Item One" {...a11yProps(0)} />
-                <Tab label="Item Two" {...a11yProps(1)} />
-                <Tab label="Item Three" {...a11yProps(2)} />
-                <Tab label="Item Four" {...a11yProps(3)} />
-                <Tab label="Item Five" {...a11yProps(4)} />
-                <Tab label="Item Six" {...a11yProps(5)} />
-                <Tab label="Item Seven" {...a11yProps(6)} />
-            </Tabs>
 
             <Box alignItems='center'>
 
@@ -105,19 +89,45 @@ export default function Profile(props:any) {
                     sx={{ width: 150, height: 150,marginRight:'5%' }}
                 />
 
-                <div style={{display:'inline-block'}}>
-                    <Typography variant='h5' sx={{marginTop:'-20%',width:'20vh'}}>Avery King</Typography><br/>
-                    <div style={{display:'flex'}}>
+                <div style={{display:'inline-block',position:'relative',top:'20px',width:'50vh'}}>
+                    <div style={{width:'20vh',marginLeft:'25%'}}>
+
+
+                    <Typography variant='h5' sx={{marginTop:'-20%',width:'20vh',marginBottom:'1%'}}>Avery King</Typography><br/>
+                    <div style={{display:'flex',marginBottom:'10%'}}>
                         <Typography  sx={{marginTop:'-15%',width:'20vh',justifyContent:'center'}}>🌍Kalamazoo, MI</Typography>
 
-                    </div><br/>
+                    </div>
+                    </div>
+                    <div style={{display:'flex'}}>
+                        <Button variant='outlined' sx={{width:'80%'}}>Add friend</Button>
+                        <Button variant='outlined' sx={{width:'80%'}}>Message</Button>
+                    </div>
+
 
                 </div>
 
 
             </Grid>
 
+                <Grid container>
+                    <Tabs
+                        orientation="vertical"
+                        variant="scrollable"
+                        value={value}
+                        onChange={handleChange}
+                        aria-label="Vertical tabs example"
+                        sx={{ borderRight: 1, borderColor: 'transparent',position:'absolute', height:'100%'}}
+                    >
+                        <Tab label="Overview" {...a11yProps(0)} />
+                        <Tab label="Posts" {...a11yProps(1)} />
+                        <Tab label="Friends" {...a11yProps(2)} />
+
+                    </Tabs>
+
+                </Grid>
             </Grid>
+
         </Paper>
     </Grid>
         </div>
