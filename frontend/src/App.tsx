@@ -5,6 +5,7 @@ import MainScreen from './components/MainScreen';
 import GreetUser from './GreetUser';
 import Profile from './components/Profile';
 import Messages from "./components/Messages";
+import LoginForm from './components/LoginForm';
 function App(props: any) {
 
     if(props.mode === 'signUp') {
@@ -26,7 +27,15 @@ function App(props: any) {
     if(props.mode === 'mainScreen') {
         return (
             <div>
-                <Messages session={props.session} />
+                <Profile session={props.session} />
+            </div>
+        )
+    }
+
+    if(props.mode === 'login') {
+        return (
+            <div>
+                <LoginForm/>
             </div>
         )
     }
