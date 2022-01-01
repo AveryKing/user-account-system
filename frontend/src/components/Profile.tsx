@@ -15,7 +15,7 @@ export default function Profile(props: any) {
 
     useEffect(() => {
         userService.getUser(props.userId)
-            .then(user => setUser(user))
+            .then((user:any) => setUser(user))
             .catch(err => alert('There was an error fetching this profile'))
     })
 
