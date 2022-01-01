@@ -1,12 +1,22 @@
 import React from "react";
-import {Avatar, Box, Button, Card, Container, Divider, Grid, Tab, Tabs, Typography} from "@mui/material";
+import {Avatar, Box, Button, createTheme, Divider, Grid, Tab, Tabs, Typography} from "@mui/material";
 import PrimarySearchAppBar from "./NavBar";
 import Paper from "@mui/material/Paper";
-import {Add, MailOutlined} from "@mui/icons-material";
-import ProfilePost from "./ProfilePost";
-import FollowersGrid from "./FollowersGrid";
 
-export default function Messages(props:any) {
+
+export default function Messages(props: any) {
+    const theme = createTheme({
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 450,
+                md: 600,
+                lg: 900,
+                xl: 1200
+            }
+        }
+    });
+
     interface TabPanelProps {
         children?: React.ReactNode;
         index: number;
@@ -83,108 +93,229 @@ export default function Messages(props:any) {
                         style={{minHeight: '80vh'}}
                     >
 
+
                         <Grid container>
-                            <Grid item xs={12} sx={{marginLeft:'1%'}}>
-                                <Typography variant='h6'>Conversations</Typography>
+                            <Grid item xs={12} sx={{marginLeft: '2%'}}>
+                                <Typography variant='h6'>
+                                    Conversations
+                                </Typography>
+
                             </Grid>
 
                             <Grid item xs={3}>
 
                                 <Tabs
+
+
                                     orientation="vertical"
                                     variant="scrollable"
                                     value={value}
                                     onChange={handleChange}
-                                    aria-label="Vertical tabs example"
+                                    aria-label="Vertical tabs "
                                     sx={{
                                         borderRight: 1,
                                         borderColor: 'transparent',
                                         position: 'absolute',
-                                        height: '100%',
+                                        maxHeight: '80vh',
 
                                     }}
                                 >
+                                    <Tab sx={{textTransform: 'none', alignItems: 'flex-start'}}
+                                         {...a11yProps(0)}
+                                         label={
+                                             <React.Fragment>
 
-                                    <Tab sx={{textTransform:'none', alignItems:'flex-start'}} label={
-                                        <React.Fragment>
-
-                                            <span style={{display:'flex'}}><Avatar
+                                            <span style={{display: 'flex'}}><Avatar
 
                                                 alt="AK"
                                                 src="https://avatars.githubusercontent.com/u/76629826?v=4"
                                                 sx={{width: 60, height: 60}}
                                             />
-                                                <div style={{display:'block',textAlign:'start',paddingLeft:'3px'}}>
-                                                <Typography sx={{fontWeight:'500'}}>Avery King</Typography>
-                                                <Typography>Lorem ipsum dolor sit am... 1d</Typography>
+                                                <div style={{
+                                                    display: 'block',
+                                                    textAlign: 'start',
+                                                    paddingLeft: '3px',
+                                                    alignItems: 'center'
+                                                }}>
+                                                <Typography sx={{
+                                                    fontWeight: '500',
+                                                    display: {
+                                                        xs: 'none',
+                                                        sm: 'block'
+                                                    },
+                                                    marginTop: {
+                                                        sm: '25%',
+                                                        md: '0',
+                                                        lg: '0'
+                                                    }
+                                                }}>Avery King</Typography>
+                                                <Typography sx={{
+                                                    display: {
+                                                        xxs: 'none',
+                                                        xs: 'none',
+                                                        sm: 'none',
+                                                        md: 'inline-block',
+                                                        lg: 'block',
+                                                        xl: 'block'
+                                                    },
+                                                }}>Lorem ipsum dolor sit am... 1d</Typography>
+
                                             </div>
 
                                             </span>
-                                        </React.Fragment>
-                                    } {...a11yProps(0)} />
-                                    <Divider />
 
-                                    <Tab sx={{textTransform:'none', alignItems:'flex-start'}} label={
-                                        <React.Fragment>
+                                             </React.Fragment>
+                                         }/>
 
-                                            <span style={{display:'flex'}}><Avatar
+                                    <Tab sx={{textTransform: 'none', alignItems: 'flex-start'}}
+                                         {...a11yProps(1)}
+                                         label={
+                                             <React.Fragment>
+
+                                            <span style={{display: 'flex'}}><Avatar
 
                                                 alt="AK"
                                                 src="https://media1.popsugar-assets.com/files/thumbor/mzUiLo-8Y10peZM55u_w6Loa-h4/612x451:2344x2183/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/11/19/007/n/1922398/d3c823415dd4769f7d9263.82518194_/i/Kim-Kardashian.jpg"
                                                 sx={{width: 60, height: 60}}
                                             />
-                                                <div style={{display:'block',textAlign:'start',paddingLeft:'3px'}}>
-                                                <Typography sx={{fontWeight:'500'}}>Kim Kardashian</Typography>
-                                                <Typography>Lorem ipsum dolor sit am... 1d</Typography>
+                                                <div style={{display: 'block', textAlign: 'start', paddingLeft: '3px'}}>
+                                                <Typography sx={{
+                                                    fontWeight: '500',
+                                                    display: {
+                                                        xs: 'none',
+                                                        sm: 'block'
+                                                    },
+                                                    marginTop: {
+                                                        sm: '15%',
+                                                        md: '0',
+                                                        lg: '0'
+                                                    }
+                                                }}>Kim Kardashian</Typography>
+                                                <Typography sx={{
+                                                    display: {
+                                                        xxs: 'none',
+                                                        xs: 'none',
+                                                        sm: 'none',
+                                                        md: 'inline-block',
+                                                        lg: 'block',
+                                                        xl: 'block'
+                                                    },
+                                                }}>Lorem ipsum dolor sit am... 1d</Typography>
                                             </div>
 
                                             </span>
-                                        </React.Fragment>
-                                    } {...a11yProps(1)} />
-                                    <Divider />
- <Tab sx={{textTransform:'none', alignItems:'flex-start'}} label={
-                                        <React.Fragment>
+                                             </React.Fragment>
+                                         }/>
+                                    <Tab sx={{textTransform: 'none', alignItems: 'flex-start'}}
+                                         {...a11yProps(2)}
+                                         label={
+                                             <React.Fragment>
 
-                                            <span style={{display:'flex'}}><Avatar
+                                            <span style={{display: 'flex'}}><Avatar
 
                                                 alt="AK"
-                                                src="https://www.whitehouse.gov/wp-content/uploads/2021/01/45_donald_trump.jpg"
+
+                                                src="https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg"
                                                 sx={{width: 60, height: 60}}
                                             />
-                                                <div style={{display:'block',textAlign:'start',paddingLeft:'3px'}}>
-                                                <Typography sx={{fontWeight:'500'}}>Donald Trump</Typography>
-                                                <Typography>Lorem ipsum dolor sit am... 1d</Typography>
+                                                <div style={{
+                                                    display: 'block',
+                                                    textAlign: 'start',
+                                                    paddingLeft: '3px',
+                                                    alignItems: 'center'
+                                                }}>
+                                               <Typography sx={{
+                                                   fontWeight: '500',
+                                                   display: {
+                                                       xs: 'none',
+                                                       sm: 'flex'
+                                                   },
+                                                   marginTop: {
+                                                       sm: '25%',
+                                                       md: '0',
+                                                       lg: '0'
+                                                   }
+                                               }}>Elon Musk</Typography>
+                                                <Typography sx={{
+                                                    display: {
+                                                        xxs: 'none',
+                                                        xs: 'none',
+                                                        sm: 'none',
+                                                        md: 'inline-block',
+                                                        lg: 'block',
+                                                        xl: 'block'
+                                                    },
+                                                }}>Lorem ipsum dolor sit am... 1d</Typography>
                                             </div>
 
                                             </span>
-                                        </React.Fragment>
-                                    } {...a11yProps(2)} />
-                                    <Divider />
+                                             </React.Fragment>
+                                         }/>
+                                    <Tab sx={{textTransform: 'none', alignItems: 'flex-start'}}
+                                         {...a11yProps(3)}
+                                         label={
+                                             <React.Fragment>
 
+                                            <span style={{display: 'flex'}}><Avatar
+
+                                                alt="AK"
+
+                                                src="https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fentries%2Ficons%2Foriginal%2F000%2F013%2F564%2Fdoge.jpg"
+                                                sx={{width: 60, height: 60}}
+                                            />
+                                                <div style={{display: 'block', textAlign: 'start', paddingLeft: '3px'}}>
+                                                <Typography sx={{
+                                                    fontWeight: '500',
+                                                    display: {
+                                                        xs: 'none',
+                                                        sm: 'block'
+                                                    },
+                                                    marginTop: {
+                                                        sm: '25%',
+                                                        md: '0',
+                                                        lg: '0'
+                                                    }
+                                                }}>Good Doge</Typography>
+                                                <Typography sx={{
+                                                    display: {
+                                                        xxs: 'none',
+                                                        xs: 'none',
+                                                        sm: 'none',
+                                                        md: 'inline-block',
+                                                        lg: 'block',
+                                                        xl: 'block'
+                                                    },
+                                                }}>Lorem ipsum dolor sit am... 1d</Typography>
+                                            </div>
+
+                                            </span>
+                                             </React.Fragment>
+                                         }/>
 
                                 </Tabs>
                             </Grid>
 
-                            <Grid item xs={9}>
+                            <Grid item xs={7} sx={{marginLeft: '10%'}}>
+
                                 <TabPanel value={value} index={0}>
-                                    Avery convo
+                                    Avery
+
                                 </TabPanel>
 
-                                  <TabPanel value={value} index={1}>
-                                    Kim convo
-                                </TabPanel>
+                                <TabPanel value={value} index={1}>
+                                    Kim
 
-                                  <TabPanel value={value} index={2}>
-                                    Donald convo
+                                </TabPanel>
+                                <TabPanel value={value} index={2}>
+                                    Elon
+                                </TabPanel>
+                                <TabPanel value={value} index={3}>
+                                    Doge
                                 </TabPanel>
 
 
                             </Grid>
-
-                            </Grid>
-
-
-
+                        </Grid>
                     </Grid>
 
                 </Paper>
