@@ -2,7 +2,9 @@ import React from "react";
 import {Avatar, Box, Button, createTheme, Divider, Grid, Tab, Tabs, Typography} from "@mui/material";
 import PrimarySearchAppBar from "./NavBar";
 import Paper from "@mui/material/Paper";
-
+// @ts-ignore
+import ChatMsg from '@mui-treasury/components/chatMsg/ChatMsg';
+import MessageConversation from "./MessageConversation";
 
 export default function Messages(props: any) {
     const theme = createTheme({
@@ -95,14 +97,14 @@ export default function Messages(props: any) {
 
 
                         <Grid container>
-                            <Grid item xs={12} sx={{marginLeft: '2%'}}>
+                            <Grid item xs={12} sx={{marginLeft: '50%'}}>
                                 <Typography variant='h6'>
-                                    Conversations
+                                    &emsp;Conversations
                                 </Typography>
 
                             </Grid>
 
-                            <Grid item xs={3}>
+                            <Grid item xs={3} sm={4}>
 
                                 <Tabs
 
@@ -295,22 +297,27 @@ export default function Messages(props: any) {
                                 </Tabs>
                             </Grid>
 
-                            <Grid item xs={7} sx={{marginLeft: '10%'}}>
+                            <Grid item xs={8} md={5} sx={{marginLeft: {
+                                xl:'-2%',
+                                    lg:'-2%',
+                                    md:'15%',
+                                    sm:'5%'
+                                }}}>
 
                                 <TabPanel value={value} index={0}>
-                                    Avery
+                                    <MessageConversation />
 
                                 </TabPanel>
 
                                 <TabPanel value={value} index={1}>
-                                    Kim
+                                    <MessageConversation />
 
                                 </TabPanel>
                                 <TabPanel value={value} index={2}>
-                                    Elon
+                                    <MessageConversation />
                                 </TabPanel>
                                 <TabPanel value={value} index={3}>
-                                    Doge
+                                    <MessageConversation />
                                 </TabPanel>
 
 
