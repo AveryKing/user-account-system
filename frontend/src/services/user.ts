@@ -7,6 +7,11 @@ const getAll = (): Promise<object> => {
     return request.then(response => response.data);
 }
 
+const getUser = (userId: string): Promise<object> => {
+    const request = axios.get(`${baseUrl}/${userId}`);
+    return request.then(response => response.data);
+}
+
 const create = (newUser: object): Promise<object> => {
     const request = axios.post(`${baseUrl}`, newUser);
     return request.then(response => response.data);
@@ -17,7 +22,7 @@ const getUserData = () => {
     return request.then(response => response.data);
 }
 
-const validateToken = (token:string) => {
+const validateToken = (token:string): Promise<boolean> => {
     console.log(999)
     const request = axios.post(`${baseUrl}/validate`, {token:token});
     return request.then(response => response.data.isValid)
@@ -40,5 +45,5 @@ const checkInUse = async (userData: any, values: { email?: string, username?: st
     return Promise.resolve(false)
 }
 export default {
-    getAll, create, checkInUse, getUserData,validateToken
+    getAll, create, checkInUse, getUserData,validateToken,getUser
 };
