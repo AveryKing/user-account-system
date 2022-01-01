@@ -15,6 +15,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import ReactDOM from 'react-dom';
+import App from "../App";
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -99,7 +101,9 @@ export default function PrimarySearchAppBar(props:any) {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+            <MenuItem onClick={()=>{
+                ReactDOM.render(<App mode='profile' />, document.getElementById('root'))
+            }}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
         </Menu>
     );
