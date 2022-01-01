@@ -59,7 +59,7 @@ export default function Profile(props: any) {
                 direction="column"
                 alignItems="center"
 
-                style={{minHeight: '80vh'}}
+                style={{minHeight: '100vh'}}
             >
                 <Paper sx={{
                     marginTop: '0.5%',
@@ -71,11 +71,6 @@ export default function Profile(props: any) {
                     paddingBottom: '10px',
                 }} elevation={15}>
 
-
-                    <Box alignItems='center'>
-
-
-                    </Box>
                     <Grid
                         container
                         spacing={0}
@@ -95,7 +90,7 @@ export default function Profile(props: any) {
                             <Avatar
 
                                 alt="AK"
-                                src="/static/images/avatar/1.jpg"
+                                src="https://avatars.githubusercontent.com/u/76629826?v=4"
                                 sx={{width: 150, height: 150, marginRight: '5%'}}
                             />
 

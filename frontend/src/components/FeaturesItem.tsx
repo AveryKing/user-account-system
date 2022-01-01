@@ -9,7 +9,7 @@ export default function FeaturesItem(props:any) {
                    sx={{ borderRadius: '15px',
                        backgroundColor: "rgba(255,255,255,0.62)"}}>
                 <Typography variant='h6'>{props.title}</Typography>
-                <Typography sx={{marginLeft:'5px'}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dignissimos ducimus est, expedita illo illum iste magnam officia optio perferendis quas qui rerum sapiente similique soluta? Dolores eius quia totam!</Typography>
+                <Typography sx={{marginLeft:'5px'}}>Feature details here</Typography>
             </Paper>
         </Grid>
     )
