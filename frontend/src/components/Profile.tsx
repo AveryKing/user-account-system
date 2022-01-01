@@ -1,14 +1,24 @@
 import PrimarySearchAppBar from "./NavBar";
-import React from "react";
+import React, {useEffect} from "react";
 import {Avatar, Box, Button, Container, Divider, Grid, Link, Slide, Tab, Tabs, Typography} from "@mui/material";
 import Paper from "@mui/material/Paper";
 import FeaturesItem from "./FeaturesItem";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ProfilePost from "./ProfilePost";
 import FollowersGrid from "./FollowersGrid";
+import userService from '../services/user';
 import { Add, MailOutlined } from "@mui/icons-material";
 
 export default function Profile(props: any) {
+
+    const [user, setUser] = useState(null)
+
+    useEffect(() => {
+        userService.getUser(props.userId)
+            .then(user => setUser(user))
+            .catch(err => alert('There was an error fetching this profile'))
+    })
+
     interface TabPanelProps {
         children?: React.ReactNode;
         index: number;
