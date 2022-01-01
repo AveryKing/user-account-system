@@ -56,7 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar(props:any) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
         React.useState<null | HTMLElement>(null);
@@ -78,6 +78,7 @@ export default function PrimarySearchAppBar() {
     };
 
     const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+        props.toggle(true)
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
@@ -157,7 +158,7 @@ export default function PrimarySearchAppBar() {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar position="static" sx={{backgroundColor:'rgba(5,93,172,0.79)'}}>
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -215,6 +216,7 @@ export default function PrimarySearchAppBar() {
                     </Box>
                     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
+
                             size="large"
                             aria-label="show more"
                             aria-controls={mobileMenuId}
