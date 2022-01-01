@@ -94,13 +94,16 @@ export default function Profile(props:any) {
 
 
                     <Typography variant='h5' sx={{marginTop:'-20%',width:'20vh',marginBottom:'1%'}}>Avery King</Typography><br/>
-                    <div style={{display:'flex',marginBottom:'10%'}}>
-                        <Typography  sx={{marginTop:'-15%',width:'20vh',justifyContent:'center'}}>🌍Kalamazoo, MI</Typography>
+                    <div style={{display:'block',marginBottom:'15%',width:'50vh'}}><br/>
+                        <Typography  sx={{marginTop:'-13%',position:'relative',right:'5%',width:'50%',justifyContent:'center'}}>&emsp;🌍Kalamazoo, MI</Typography>
 
                     </div>
+                        <div style={{display:'block',marginBottom:'10%',width:'50vh'}}><br/>
+                        <Typography  sx={{marginTop:'-13%',position:'relative',right:'5%',width:'50%',justifyContent:'center'}}>📅 21 years old</Typography>
+                        </div>
                     </div>
                     <div style={{display:'flex'}}>
-                        <Button variant='outlined' sx={{width:'80%'}}>Add friend</Button>
+                        <Button variant='outlined' sx={{width:'80%'}}>Follow</Button>
                         <Button variant='outlined' sx={{width:'80%'}}>Message</Button>
                     </div>
 
@@ -111,6 +114,8 @@ export default function Profile(props:any) {
             </Grid>
 
                 <Grid container>
+                    <Grid item xs={3}>
+
                     <Tabs
                         orientation="vertical"
                         variant="scrollable"
@@ -124,7 +129,52 @@ export default function Profile(props:any) {
                         <Tab label="Friends" {...a11yProps(2)} />
 
                     </Tabs>
+                    </Grid>
+                    <Grid item xs={7}>
+                    <TabPanel value={value} index={0}>
+                        <Box sx={{width:'100%',fontWeight:'500'}}>
+                            <Typography>
+                                Biography: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis enim qui sint tempora voluptatibus. Aliquid architecto at consequuntur dignissimos ducimus fugiat illum iste, iure labore molestiae quae, quam repellendus veniam!
 
+                            </Typography>
+                       </Box><br/>
+   <Box sx={{width:'100%',fontWeight:'500'}}>
+                            <Typography>
+                                Biography: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis enim qui sint tempora voluptatibus. Aliquid architecto at consequuntur dignissimos ducimus fugiat illum iste, iure labore molestiae quae, quam repellendus veniam!
+
+                            </Typography>
+                       </Box><br/>
+
+                    </TabPanel>
+                    <TabPanel value={value} index={1}>
+                        POSTS
+                    </TabPanel>
+                    <TabPanel value={value} index={2}>
+                        FRIENDS
+                    </TabPanel>
+                    <TabPanel value={value} index={3}>
+                        Item Four
+                    </TabPanel>
+                    </Grid>
+                    <Grid item xs={2}>
+                        <TabPanel value={value} index={0}>
+                            <Box sx={{width:'100%',fontWeight:'500',textAlign:'left'}}>
+                                <Typography sx={{marginBottom:'3px'}}>
+                                    Followers: 1
+                                </Typography>
+                                <Typography sx={{marginBottom:'3px'}}>
+                                    Following: 0
+                                </Typography>
+                                <Typography sx={{marginBottom:'3px'}}>
+
+                                </Typography>
+                                <Typography>
+                                    Gender: Male
+                                </Typography>
+                            </Box>
+                        </TabPanel>
+
+                    </Grid>
                 </Grid>
             </Grid>
 
