@@ -9,26 +9,40 @@ import LoginForm from './components/LoginForm';
 import userService from './services/user';
 function App(props: any) {
     const [session,setSession] = useState(null)
-
+    const [mode, setMode] = useState('')
+    const [effectDone, setEffectDone] = useState(false)
     useEffect(() => {
-        const loggedUserJSON = window.localStorage.getItem('uasUserToken')
+
+        const loggedUserJSON = window.localStorage.getItem('uasUser')
         if(loggedUserJSON) {
             const user = JSON.parse(loggedUserJSON)
 
-            try {
+
                 userService.validateToken(user.token)
-                setSession(user)
-            } catch (exception) {
-                console.log('Exception thrown when validating token')
-            }
+                    .then(session => {
+                        setSession(user)
+                    }).catch(exception => {
+                    setSession(null)
+                    setMode('welcome')
+                    setEffectDone(true);
+                    console.log('Exception thrown when validating token')
+                })
+
+
+                    // setSession(user)
+
             //postService.setToken(user.token)
           //  setMode('loggedIn')
 
+        } else {
+            setSession(null);
+            setMode('welcome')
+            setEffectDone(true)
         }
 
 
     }, [])
-    if(props.mode === 'signUp') {
+    if(props.mode === 'signUp' && !session) {
         return (
             <div>
                 <RegistrationForm />
@@ -43,15 +57,22 @@ function App(props: any) {
             </div>
         )
     }
+    if(props.mode === 'messages' && session) {
+        return (
+            <div>
+                <Messages />
+            </div>
+        )
+    }
 
-    if(props.mode === 'mainScreen') {
+    if(session && !props.mode) {
         return (
             <div>
                 <MainScreen session={props.session} />
             </div>
         )
     }
-    if(props.mode === 'profile') {
+    if(session && props.mode === 'profile') {
         return (
             <div>
                 <Profile session={props.session} />
@@ -59,20 +80,21 @@ function App(props: any) {
         )
     }
 
-    if(props.mode === 'login') {
+    if(props.mode === 'login' && !session) {
         return (
             <div>
                 <LoginForm/>
             </div>
         )
     }
+
+
+
     return (
-        <div>
-
-            <Welcome />
-
-        </div>
-    );
+          <div>
+              {effectDone && <Welcome />}
+          </div>
+      )
 
 }
 

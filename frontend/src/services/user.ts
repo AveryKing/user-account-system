@@ -18,7 +18,8 @@ const getUserData = () => {
 }
 
 const validateToken = (token:string) => {
-    const request = axios.post(`${baseUrl}/validateToken`);
+    console.log(999)
+    const request = axios.post(`${baseUrl}/validate`, {token:token});
     return request.then(response => response.data.isValid)
 }
 

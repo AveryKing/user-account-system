@@ -18,7 +18,7 @@ mongoose.connect(connStr).then((_result: any) => {
 })
 
 app.get('/', (_req: Request, res: Response) => {
-    res.send('hello world!')
+    res.send('wtf')
 })
 
 

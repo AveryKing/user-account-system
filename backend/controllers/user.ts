@@ -2,8 +2,39 @@ import {Request, Response} from 'express';
 import {User, IUser} from '../models/User'
 const bcrypt = require('bcrypt');
 const userRouter = require('express').Router();
+const jwt = require('jsonwebtoken')
+
+
+userRouter.get('/validate', async (req:Request, res:Response) => {
+    res.json({hello:'omg'})
+})
+/** Validates a token ***/
+userRouter.post('/validate', async (req: Request, res: Response) => {
+
+    console.log('validating')
+    const SECRET: string = 'H(#(#Ji2mk34jruje9k2i3ij4ufnhv';
+    if(!req.body.token) {
+        return res.status(401).json({error:'No token was provided'})
+    }
+
+    let decodedToken = undefined
+    try {
+        decodedToken = jwt.verify(req.body.token, SECRET)
+        return res.json({isValid:true})
+    } catch (error) {
+        // throw error when it fails to decode and is bad token4
+        return res.status(401).json({
+            error: "invalid token"
+        })//what a great idea!!!
+
+    }
+
+    res.json({test:'lol'})
+})
+
 
 /** Used to create a new account **/
+
 userRouter.post('/', async (req: Request, res: Response) => {
     if (!req.body.email || !req.body.username || !req.body.password) {
         return res.json({
