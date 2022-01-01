@@ -3,12 +3,18 @@ import {Button, ButtonGroup, CircularProgress, Grid, Grow, Link, Typography} fro
 import React from "react";
 import App from "../App";
 import ReactDOM from "react-dom";
+import LoginForm from "./LoginForm";
 
 export default function Welcome() {
 
     function openSignUp () {
         ReactDOM.render(<App mode='signUp' />, (document.getElementById('root')));
     }
+
+    function openLogin () {
+        ReactDOM.render(<App mode='login' />, (document.getElementById('root')));
+    }
+
     return (
         <Grid
             container
@@ -34,7 +40,7 @@ export default function Welcome() {
                     <br/>
                     <ButtonGroup>
                         <Button variant='outlined' onClick={openSignUp}>Sign Up</Button>
-                        <Button variant='outlined'>Log In</Button>
+                        <Button variant='outlined' onClick={openLogin}>Log In</Button>
                     </ButtonGroup>
 
                 </Grid>
