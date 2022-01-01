@@ -44,7 +44,7 @@ const RegistrationForm: FC = () => {
         if (fieldValue && fieldName !== 'password') {
             userService.checkInUse(userData, checkParams)
                 .then(response => {
-                    console.log(response)
+
                     if (fieldName === 'email') {
                         setEmailError(response);
                     } else if (fieldName === 'username') {
@@ -80,7 +80,7 @@ const RegistrationForm: FC = () => {
                     if(!response.hasOwnProperty('error')) {
                         setDisplayForm(false)
                         setShowPaper(false)
-                        alert('Welcome')
+                        ReactDOM.render(<App mode='greetUser' name='welcome'/>, document.getElementById('root'));
                        // ReactDOM.render(<App welcome={true}/>, document.getElementById('root'));
                     } else {
                         alert('error')
