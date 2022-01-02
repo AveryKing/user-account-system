@@ -2,6 +2,7 @@ const express = require('express');
 import {Request, Response} from 'express';
 import loginRouter from './controllers/login';
 import userRouter from './controllers/user';
+import postRouter from './controllers/post';
 const mongoose = require('mongoose');
 
 const app = express();
@@ -9,8 +10,9 @@ const cors = require('cors')
 
 app.use(cors())
 app.use(express.json())
-app.use('/api/login', loginRouter)
-app.use('/api/users', userRouter)
+app.use('/api/login', loginRouter);
+app.use('/api/users', userRouter);
+app.use('/api/posts', postRouter);
 
 const connStr: string = 'mongodb+srv://fullstack:fullstack@cluster0.qynol.mongodb.net/account-system?retryWrites=true&w=majority';
 mongoose.connect(connStr).then((_result: any) => {
