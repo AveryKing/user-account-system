@@ -11,7 +11,7 @@ export default function ProfilePost(props:any) {
                        borderRadius: '10px'
                    }}>
                 <div style={{margin: '5px'}}>
-                    <Typography variant='h6'>Post</Typography>
+                    <Typography variant='h6'>{props.username}</Typography>
                     <Typography>Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit. Ab adipisci aspernatur dicta enim eos ex facilis inventore
                         laborum molestiae optio provident quaerat quas quasi quia quis

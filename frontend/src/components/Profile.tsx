@@ -14,12 +14,15 @@ export default function Profile(props: any) {
     const [user, setUser] = useState(null)
     const [followers, setFollowers] = useState([])
     const [following, setFollowing] = useState([])
+    const [posts, setPosts] = useState([])
+
     useEffect(() => {
         userService.getUser('61d0e90e6c060de4dad5ea86')
             .then((user:any) => {
                 setUser(user.user)
                 setFollowers(user.user.followers)
                 setFollowing(user.user.following)
+                setPosts(user.user.posts)
             })
             .catch(err => alert('There was an error fetching this profile'))
     },[])
@@ -205,11 +208,9 @@ export default function Profile(props: any) {
 
                                 <TabPanel value={value} index={1}>
                                     <Grid container sx={{marginLeft: '9%'}} spacing={2}>
-                                        <ProfilePost/>
-                                        <ProfilePost/>
-                                        <ProfilePost/>
-                                        <ProfilePost/>
-
+                                        {posts.length
+                                            ? posts.map(post => <ProfilePost username={user['username']} post={post}/>)
+                                            : <Typography>There are no posts to show.</Typography>}
                                     </Grid>
 
                                 </TabPanel>
