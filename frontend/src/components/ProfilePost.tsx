@@ -12,10 +12,7 @@ export default function ProfilePost(props:any) {
                    }}>
                 <div style={{margin: '5px'}}>
                     <Typography variant='h6'>{props.username}</Typography>
-                    <Typography>Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Ab adipisci aspernatur dicta enim eos ex facilis inventore
-                        laborum molestiae optio provident quaerat quas quasi quia quis
-                        repellat sunt voluptatibus, voluptatum.</Typography>
+                    <Typography>{props.post.content ? props.post.content : 'There was an error loading this post'}</Typography>
 
                 </div>
 

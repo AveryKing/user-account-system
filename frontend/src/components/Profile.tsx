@@ -7,6 +7,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ProfilePost from "./ProfilePost";
 import FollowersGrid from "./FollowersGrid";
 import userService from '../services/user';
+import postService from '../services/post';
 import { Add, MailOutlined } from "@mui/icons-material";
 
 export default function Profile(props: any) {
@@ -22,7 +23,8 @@ export default function Profile(props: any) {
                 setUser(user.user)
                 setFollowers(user.user.followers)
                 setFollowing(user.user.following)
-                setPosts(user.user.posts)
+                postService.getMultiple(user.user.posts)
+                    .then((res:any) => setPosts(res))
             })
             .catch(err => alert('There was an error fetching this profile'))
     },[])
