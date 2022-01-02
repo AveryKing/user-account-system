@@ -106,9 +106,8 @@ export default function Profile(props: any) {
                             display: 'flex'
                         }}>
                             <Avatar
-
-                                alt="AK"
-                                src="https://avatars.githubusercontent.com/u/76629826?v=4"
+                                alt={user['username']}
+                                src={user['avatarUrl']}
                                 sx={{width: 150, height: 150, marginRight: '5%'}}
                             />
 

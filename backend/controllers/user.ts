@@ -66,7 +66,8 @@ userRouter.post('/', async (req: Request, res: Response) => {
         biography:null,
         location: null,
         age: null,
-        gender:null
+        gender:null,
+        avatarUrl:null
     });
 
     user.save().then(newUser => {
