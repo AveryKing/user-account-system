@@ -12,13 +12,13 @@ interface IUser extends Document {
     location: string;
     age: number;
     biography: string;
-    followers: number[];
-    following: number[];
-    posts: number[];
+    followers: any;
+    following: any;
+    posts: any;
     avatarUrl: string;
 }
 
-const UserSchema: Schema = new Schema({
+const UserSchema: Schema<IUser> = new Schema({
     email: { type: String, required: true, unique: REQUIRE_UNIQUE_EMAIL },
     username: { type: String, required: true, unique: REQUIRE_UNIQUE_USERNAME },
     password: { type: String, required: true, select: true },
