@@ -12,12 +12,14 @@ import { Add, MailOutlined } from "@mui/icons-material";
 export default function Profile(props: any) {
 
     const [user, setUser] = useState(null)
-
+    const [followers, setFollowers] = useState([])
+    const [following, setFollowing] = useState([])
     useEffect(() => {
         userService.getUser('61d0e90e6c060de4dad5ea86')
             .then((user:any) => {
                 setUser(user.user)
-                console.log(user)
+                setFollowers(user.user.followers)
+                setFollowing(user.user.following)
             })
             .catch(err => alert('There was an error fetching this profile'))
     },[])
@@ -62,7 +64,9 @@ export default function Profile(props: any) {
     };
 
     if(user) {
-    return (
+    // @ts-ignore
+        // @ts-ignore
+        return (
         <div>
             <div style={{marginTop: -7, width: '100vw', marginLeft: -18}}>
                 <PrimarySearchAppBar/>
@@ -187,19 +191,13 @@ export default function Profile(props: any) {
                                 <TabPanel value={value} index={0}>
                                     <Box sx={{width: '100%', fontWeight: '500'}}>
                                         <Typography>
-                                            Biography: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
-                                            enim qui sint tempora voluptatibus. Aliquid architecto at consequuntur
-                                            dignissimos ducimus fugiat illum iste, iure labore molestiae quae, quam
-                                            repellendus veniam!
+                                            Biography: {user['biography']}
 
                                         </Typography>
                                     </Box><br/>
                                     <Box sx={{width: '100%', fontWeight: '500'}}>
                                         <Typography>
-                                            Biography: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
-                                            enim qui sint tempora voluptatibus. Aliquid architecto at consequuntur
-                                            dignissimos ducimus fugiat illum iste, iure labore molestiae quae, quam
-                                            repellendus veniam!
+                                            More content here
 
                                         </Typography>
                                     </Box><br/>
@@ -227,16 +225,16 @@ export default function Profile(props: any) {
                                 <TabPanel value={value} index={0}>
                                     <Box sx={{width: '100%', fontWeight: '500', textAlign: 'left'}}>
                                         <Typography sx={{marginBottom: '3px'}}>
-                                            Followers: 1
+                                            Followers: {followers.length}
                                         </Typography>
                                         <Typography sx={{marginBottom: '3px'}}>
-                                            Following: 0
+                                            Following: {following.length}
                                         </Typography>
                                         <Typography sx={{marginBottom: '3px'}}>
 
                                         </Typography>
                                         <Typography>
-                                            Gender: Male
+                                            Gender: {user['gender']}
                                         </Typography>
                                     </Box>
                                 </TabPanel>
