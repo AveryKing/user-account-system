@@ -15,18 +15,20 @@ interface IUser extends Document {
     followers: number[];
     following: number[];
     posts: number[];
+    avatarUrl: string;
 }
 
 const UserSchema: Schema = new Schema({
     email: { type: String, required: true, unique: REQUIRE_UNIQUE_EMAIL },
     username: { type: String, required: true, unique: REQUIRE_UNIQUE_USERNAME },
-    password: { type: String, required: true, select: false },
+    password: { type: String, required: true, select: true },
     location: {type: String, required: false},
     age: {type: Number, required: false},
     biography: {type: String, required: false},
     followers: {type: Array, required: false},
     following: {type: Array, required: false},
-    posts: {type: Array, required: false}
+    posts: {type: Array, required: false},
+    avatarUrl: {type: String, required:false}
 
 });
 

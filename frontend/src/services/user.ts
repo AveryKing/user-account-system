@@ -19,7 +19,7 @@ const create = (newUser: object): Promise<object> => {
 
 const getUserData = () => {
     const request = axios.get(`${baseUrl}/getUserData`);
-    return request.then(response => response.data);
+    return request.then(response => response.data.user);
 }
 
 const validateToken = (token:string): Promise<boolean> => {

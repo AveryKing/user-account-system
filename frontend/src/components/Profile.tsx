@@ -14,10 +14,13 @@ export default function Profile(props: any) {
     const [user, setUser] = useState(null)
 
     useEffect(() => {
-        userService.getUser(props.userId)
-            .then((user:any) => setUser(user))
+        userService.getUser('61d0e90e6c060de4dad5ea86')
+            .then((user:any) => {
+                setUser(user.user)
+                console.log(user)
+            })
             .catch(err => alert('There was an error fetching this profile'))
-    })
+    },[])
 
     interface TabPanelProps {
         children?: React.ReactNode;
@@ -58,6 +61,7 @@ export default function Profile(props: any) {
         setValue(newValue);
     };
 
+    if(user) {
     return (
         <div>
             <div style={{marginTop: -7, width: '100vw', marginLeft: -18}}>
@@ -116,8 +120,7 @@ export default function Profile(props: any) {
                                                         width: '110%',
                                                         justifyContent: 'center',
                                                         marginBottom: '0.7vh'
-                                                    }}>Avery
-                                            King</Typography><br/>
+                                                    }}>{user['username']}</Typography><br/>
                                     </div>
                                     <div style={{display: 'block', marginBottom: '15%', width: '50vh'}}><br/>
                                         <Typography sx={{
@@ -126,7 +129,7 @@ export default function Profile(props: any) {
                                             right: '5%',
                                             width: '50%',
                                             justifyContent: 'center'
-                                        }}>🌍Kalamazoo, MI</Typography>
+                                        }}>🌍 {user['location']}</Typography>
 
                                     </div>
                                     <div style={{display: 'block', marginBottom: '10%', width: '50vh'}}><br/>
@@ -136,7 +139,7 @@ export default function Profile(props: any) {
                                             right: '5%',
                                             width: '50%',
                                             justifyContent: 'center'
-                                        }}>📅 21 years old</Typography>
+                                        }}>📅 {user['age']} years old</Typography>
                                     </div>
                                 </div>
                                 <div style={{display: 'flex'}}>
@@ -244,6 +247,12 @@ export default function Profile(props: any) {
 
                 </Paper>
             </Grid>
+        </div>
+    ) }
+
+    return (
+        <div>
+            <p>Loading...</p>
         </div>
     )
 }
