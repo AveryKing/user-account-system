@@ -21,6 +21,22 @@ postRouter.get('/:post', (req: Request, res: Response) => {
         })
 })
 
+postRouter.post('/multiple', (req:Request, res:Response) => {
+    if(!req.body.posts) {
+        return res.status(400).json({
+            error:'invalid parameters'
+        })
+    }
 
+    const posts = req.body.posts
+    Post.find({ '_id': { $in: posts } })
+        .then(postsData => {
+           return res.json(postsData)
+        }).catch(err => {
+            return res.status(404).json({
+                error:'There was a problem with your request'
+            })
+    })
+})
 
 export default postRouter;

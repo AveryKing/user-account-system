@@ -1,5 +1,6 @@
 import {Request, Response} from 'express';
 import {User, IUser} from '../models/User'
+import {Post, IPost} from '../models/Post';
 const bcrypt = require('bcrypt');
 const userRouter = require('express').Router();
 const jwt = require('jsonwebtoken')
